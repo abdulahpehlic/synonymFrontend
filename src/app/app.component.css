@@ -1,0 +1,50 @@
+.container{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+.toolbar {
+    background-color: white;
+}
+
+.navigateButtons {
+    margin-top: 5%;
+    border: none;
+    background: rgb(219, 219, 219) !important;
+    
+}
+
+mat-button-toggle {
+    background: white !important;
+    color: rgb(28,137,189) !important;
+}
+mat-button-toggle:hover {
+    background-color: rgb(28,137,189) !important;
+    color: white !important;
+}
+.mat-button-toggle-checked {
+    background-color: rgb(28,137,189) !important;
+    color: white !important;
+}
+
+::ng-deep.mat-form-field-underline {
+    background-color: rgb(28,137,189) !important;
+  } 
+
+@media only screen and (max-width: 550px) {
+    mat-button-toggle {
+        width: 100px;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    mat-button-toggle {
+        width: 80px;
+        white-space: initial;
+    }
+    ::ng-deep .mat-button-toggle-label-content {
+        line-height: 22px !important;
+    }
+}

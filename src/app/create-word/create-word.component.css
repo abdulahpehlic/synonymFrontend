@@ -1,0 +1,25 @@
+.addRemoveSynonymButtons {
+    background-color: rgb(28,137,189); 
+    border-radius: 30%;
+    size: 30%;
+    font-size:80% !important;
+    margin-left:1.5%;
+    margin-top: 1.5%;
+    color: white !important;
+}
+
+.addSynonymsContainer {
+    margin-top: 5%;
+}
+
+mat-button {
+    border-color: rgb(28,137,189) !important;
+}
+
+.descriptionButton {
+    border: 1px solid rgb(28,137,189) !important;
+    border-radius: 20px;
+    white-space: initial;
+    margin-top: 2%;
+    margin-left: 2%;
+}

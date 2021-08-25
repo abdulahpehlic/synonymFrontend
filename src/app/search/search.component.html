@@ -1,0 +1,31 @@
+<div>
+<mat-card class="searchContainer">
+    <div>
+        <h4>Enter a word to find its synonyms: </h4>
+        <form (ngSubmit)="getSynonyms(wordSearchForm.value);" [formGroup]="wordSearchForm">
+            <mat-form-field style="display: block;">
+            <input style="background: transparent;" matInput placeholder="Word" formControlName="wordString">
+            </mat-form-field>
+            <button [disabled]="!wordSearchForm.valid" mat-button type="submit">Search</button>
+        </form>
+        
+    </div>
+</mat-card>
+    <div>
+        <div *ngFor="let group of wordsGrouped;" class="synonymContainer">
+            <mat-card class="matCardContainer">
+                <h2 class="mainWord">{{selectedWord}}</h2>
+                <p class="definition"><i>def.</i> ({{group[0].description}})</p>
+                <div *ngFor="let word of group">
+                    <mat-card-content>
+                        <ng-template [ngIf]="word.word !== selectedWord">
+                            <p class="words">
+                            {{word.word}}
+                            </p>
+                        </ng-template>
+                    </mat-card-content>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

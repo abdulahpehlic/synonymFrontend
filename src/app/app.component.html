@@ -1,0 +1,11 @@
+<mat-toolbar class="toolbar">
+  <img src="../assets/logo.png"  width="200" height="170">
+</mat-toolbar>
+<div class="container">
+  <mat-button-toggle-group class="navigateButtons">
+    <mat-button-toggle [checked]="currentRoute() === '/search'" routerLink="/search" (change)="navigate('/search')" value="bold">Find synonyms</mat-button-toggle>
+    <mat-button-toggle [checked]="currentRoute() === '/create'" routerLink="/create" (change)="navigate('/create')" value="italic">Add synonyms</mat-button-toggle>
+  </mat-button-toggle-group>
+  <router-outlet></router-outlet>
+</div>
+
