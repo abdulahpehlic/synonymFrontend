@@ -11,3 +11,11 @@ body {margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-c
     color: white !important;
     background-color: gray !important;
 }
+.custom-snackbar {
+    background-color: white;
+    color: rgb(28,137,189);
+    border-radius: 10px !important;
+}
+.mat-simple-snackbar-action {
+    color: rgb(28,137,189);
+}

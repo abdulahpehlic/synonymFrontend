@@ -83,7 +83,7 @@ export class SearchComponent implements OnInit {
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 3000,
-      panelClass: 'snackbar',
+      panelClass: ['custom-snackbar'],
     });
   }
 
