@@ -20,20 +20,20 @@ export class SearchComponent implements OnInit {
   selectedWord: string;
   wordDescription: string;
 
-  constructor (private wordService: WordService, private router: Router, private snackBar: MatSnackBar) {}
+  constructor(private wordService: WordService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.initForms();
   }
   //Forms initalization
-  initForms(){
+  initForms() {
     this.wordSearchForm = new FormGroup({
       wordString: new FormControl('', [Validators.required, Validators.minLength(1), this.noWhitespaceValidator])
     })
   }
 
   //Method used to retrieve synonyms for the word entered from the database and group them by their descriptions to multiple arrays
-  getSynonyms(wordSearchFormValue: any){
+  getSynonyms(wordSearchFormValue: any) {
     this.wordService.fetchWords(wordSearchFormValue.wordString.trim().toLowerCase()).subscribe(
       (data: any[]) => {
         if (data.length == 0) {
@@ -48,7 +48,7 @@ export class SearchComponent implements OnInit {
             this.wordsGrouped.splice(index, 1);
           }
           else {
-            let tempGroup = this.wordsGrouped.splice(index ,1);
+            let tempGroup = this.wordsGrouped.splice(index, 1);
             this.wordsGrouped.unshift(tempGroup[0]);
           }
         });
@@ -58,10 +58,10 @@ export class SearchComponent implements OnInit {
       },
       (err) => {
         console.error(JSON.stringify(err));
-        
+
       },
       () => {
-        
+
       }
     );
   }
@@ -74,12 +74,12 @@ export class SearchComponent implements OnInit {
       return r;
     }, [Object.create([])]);
   }
-  
+
   //Method used to navigate through the app components using the Router
-  navigate(url: string){
+  navigate(url: string) {
     this.router.navigateByUrl(url);
   }
-  
+
   //Method used to open the snackBar for alerts
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {

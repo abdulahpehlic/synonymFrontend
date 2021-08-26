@@ -1,28 +1,33 @@
-
 <ng-template #addSynonymsModal>
   <mat-dialog-content>
-    <form  (keydown.enter)="$event.preventDefault()" (ngSubmit)="addSynonyms(); onCancelModal()" [formGroup]="synonymAddForm">
+    <form (keydown.enter)="$event.preventDefault()" (ngSubmit)="addSynonyms(); onCancelModal()"
+      [formGroup]="synonymAddForm">
       <mat-form-field style="display: block;">
-        <input #synonymInput matInput placeholder="Synonym" formControlName="wordString" (keyup.enter)="addSynonymUsingInput(synonymAddForm.value.wordString.trim().toLowerCase()); synonymInput.blur()" >
-        <button type='button' *ngIf="(synonymAddForm.value.wordString != '' && synonymAddForm.value.wordString != null)" matSuffix mat-icon-button aria-label="Clear" (click)="addSynonymUsingInput(synonymAddForm.value.wordString.trim().toLowerCase())">
+        <input #synonymInput matInput placeholder="Synonym" formControlName="wordString"
+          (keyup.enter)="addSynonymUsingInput(synonymAddForm.value.wordString.trim().toLowerCase()); synonymInput.blur()">
+        <button type='button' *ngIf="(synonymAddForm.value.wordString != '' && synonymAddForm.value.wordString != null)"
+          matSuffix mat-icon-button aria-label="Clear"
+          (click)="addSynonymUsingInput(synonymAddForm.value.wordString.trim().toLowerCase())">
           <mat-icon>add</mat-icon>
         </button>
       </mat-form-field>
-      
+
       <mat-label style="font-size: 80%;">Synonyms you pick are listed here:</mat-label>
       <div *ngIf="isThereExistingSynonyms">
-        <mat-label style="font-size: 70%;">*There are existing synonyms in the database! 
-          Synonyms you are adding belong to the same group and hence will be added as synonyms to the 
+        <mat-label style="font-size: 70%;">*There are existing synonyms in the database!
+          Synonyms you are adding belong to the same group and hence will be added as synonyms to the
           existing words. The existing words are presented below, before the synonyms you pick.</mat-label>
         <br>
         <br>
-        <button type='button' class="addRemoveSynonymButtons" mat-button *ngFor="let synonym of existingSynonyms" disabled>
+        <button type='button' class="addRemoveSynonymButtons" mat-button *ngFor="let synonym of existingSynonyms"
+          disabled>
           {{synonym}}
         </button>
       </div>
       <br>
       <br>
-      <button type='button' class="addRemoveSynonymButtons" mat-button *ngFor="let synonym of selectedSynonyms" (click)="handleSynonymSuggestionRemove(synonym);">
+      <button type='button' class="addRemoveSynonymButtons" mat-button *ngFor="let synonym of selectedSynonyms"
+        (click)="handleSynonymSuggestionRemove(synonym);">
         {{synonym}}
         <mat-icon style="transform: scale(0.7);">remove</mat-icon>
       </button>
@@ -32,16 +37,19 @@
       <br>
       <mat-label style="font-size: 80%;">Suggestions(highest similarity):</mat-label>
       <br>
-      <mat-label style="font-size: 60%;">*If you don't see your desired synonym, you can type it into the input field above</mat-label>
+      <mat-label style="font-size: 60%;">*If you don't see your desired synonym, you can type it into the input field
+        above</mat-label>
       <br>
       <br>
-      <button type='button' class="addRemoveSynonymButtons" mat-button *ngFor="let synonym of suggestedSynonyms" (click)="handleSynonymSuggestionPick(synonym);">
+      <button type='button' class="addRemoveSynonymButtons" mat-button *ngFor="let synonym of suggestedSynonyms"
+        (click)="handleSynonymSuggestionPick(synonym);">
         {{synonym}}
         <mat-icon style="transform: scale(0.7);">add</mat-icon>
       </button>
       <br>
       <br>
-      <button type="submit" [disabled]="(selectedSynonyms.length == 0)" mat-button style="float:right; border-radius: 5px">Add synonyms</button>
+      <button type="submit" [disabled]="(selectedSynonyms.length == 0)" mat-button
+        style="float:right; border-radius: 5px">Add synonyms</button>
     </form>
     <button type='button' (click)="onCancelModal()" mat-button style="float:right; border-radius: 5px;">Cancel</button>
   </mat-dialog-content>
@@ -51,10 +59,10 @@
   <div>
     <h4>Please enter a word for which you want to add synonyms:</h4>
     <form (ngSubmit)="getPossibleDescriptions(wordAddForm.value);" [formGroup]="wordAddForm">
-        <mat-form-field style="display: block;">
-          <input style="background: transparent;" matInput placeholder="Word" formControlName="wordString">
-        </mat-form-field>
-        <button mat-button type="submit" [disabled]="!wordAddForm.valid">Submit</button>
+      <mat-form-field style="display: block;">
+        <input style="background: transparent;" matInput placeholder="Word" formControlName="wordString">
+      </mat-form-field>
+      <button mat-button type="submit" [disabled]="!wordAddForm.valid">Submit</button>
     </form>
   </div>
 </mat-card>
@@ -63,7 +71,8 @@
   <div>
     <h4> Please choose the description that best fits your word: ({{wordSelected}})</h4>
     <mat-divider></mat-divider>
-    <button class="descriptionButton" mat-button *ngFor="let description of possibleDescriptions" (click)="getPotentialSynonyms(description); openModal(addSynonymsModal);">
+    <button class="descriptionButton" mat-button *ngFor="let description of possibleDescriptions"
+      (click)="getPotentialSynonyms(description); openModal(addSynonymsModal);">
       {{description}}
       <br>
     </button>

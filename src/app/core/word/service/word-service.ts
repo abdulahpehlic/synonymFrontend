@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { catchError } from 'rxjs/operators';
-import { throwError} from 'rxjs';
+import { throwError } from 'rxjs';
 import { WordResponse } from '../model/word-response';
 import { WordRequest } from '../model/word-request';
 

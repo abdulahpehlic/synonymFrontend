@@ -8,13 +8,13 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
   title = 'synonym';
   mediaSub: Subscription;
   deviceSm: boolean;
-  constructor (private router: Router) {}
+  constructor(private router: Router) { }
 
-  navigate(url: string){
+  navigate(url: string) {
     this.router.navigateByUrl(url);
   }
 
