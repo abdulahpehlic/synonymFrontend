@@ -6,6 +6,7 @@
 
 .toolbar {
     background-color: white;
+    justify-content: center;
 }
 
 .navigateButtons {
@@ -31,6 +32,12 @@ mat-button-toggle:hover {
 ::ng-deep.mat-form-field-underline {
     background-color: rgb(28,137,189) !important;
   } 
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}
 
 @media only screen and (max-width: 550px) {
     mat-button-toggle {

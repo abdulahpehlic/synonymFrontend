@@ -10,7 +10,7 @@ import { WordService } from '../core/word/service/word-service';
 @Component({
   selector: 'app-create-word',
   templateUrl: './create-word.component.html',
-  styleUrls: ['./create-word.component.css']
+  styleUrls: ['./create-word.component.css'],
 })
 export class CreateWordComponent implements OnInit {
 

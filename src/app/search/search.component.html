@@ -4,7 +4,7 @@
         <h4>Enter a word to find its synonyms: </h4>
         <form (ngSubmit)="getSynonyms(wordSearchForm.value);" [formGroup]="wordSearchForm">
             <mat-form-field style="display: block;">
-            <input style="background: transparent;" matInput placeholder="Word" formControlName="wordString">
+            <input #searchInput (keyup.enter)="searchInput.blur()" style="background: transparent;" matInput placeholder="Word" formControlName="wordString">
             </mat-form-field>
             <button [disabled]="!wordSearchForm.valid" mat-button type="submit">Search</button>
         </form>
