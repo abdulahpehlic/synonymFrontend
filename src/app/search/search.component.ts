@@ -38,6 +38,7 @@ export class SearchComponent implements OnInit {
       (data: any[]) => {
         if (data.length == 0) {
           this.openSnackBar('No synonyms found for this word!', 'Close');
+          this.wordsGrouped = [];
           return;
         }
         this.words = data;
